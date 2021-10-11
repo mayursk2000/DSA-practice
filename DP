@@ -1,2 +1,25 @@
-//https://www.lintcode.com/problem/853/description
+https://www.lintcode.com/problem/386/
 
+public class Solution {
+    /**
+     * @param s: A string
+     * @param k: An integer
+     * @return: An integer
+     */
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+        // write your code here
+        int n=s.length();
+        int ei=0,si=0,count=0,length=0;
+        int[] freq=new int[128];
+        
+        while(ei<n){
+            if(freq[s.charAt(ei++)]++==0) count++;
+            
+            while(count>k){
+                if(freq[s.charAt(si++)]--==1) count--;
+            }
+            length=Math.max(length,ei-si);
+        }
+        return length;
+    }
+}
