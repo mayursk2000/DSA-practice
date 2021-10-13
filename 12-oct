@@ -41,3 +41,6 @@ public int networkDelayTime(int[][] times, int N, int K) {
         }
         return count;
     }
+    
+    
+    //other was just generate permutation
